@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="桥东二手房网提供桥东区真实有效的二手房房源信息、房价走势、学区划分及小区详情。包含热门小区、在售房源、最新房价动态及购房指南，助您轻松找到心仪的家。">
+    <meta name="keywords" content="桥东二手房网,桥东区二手房,桥东房价,桥东租房,桥东小区,桥东买房">
+    <title>桥东二手房网-桥东区二手房房源信息与房价查询平台</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-dark: #004c99;
+            --secondary-color: #f5f7fa;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --border-color: #e1e4e8;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.08);
+            --radius: 6px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--secondary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-link {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .btn-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* 搜索区域 */
+        .search-section {
+            background: var(--white);
+            padding: 30px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f0f4f8;
+            padding: 10px;
+            border-radius: var(--radius);
+            border: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--primary-color);
+            background: #fff;
+        }
+
+        .search-item {
+            display: flex;
+            flex-direction: column;
+            padding: 0 15px;
+            border-right: 1px solid var(--border-color);
+            min-width: 120px;
+        }
+
+        .search-item:last-child {
+            border-right: none;
+            flex: 1;
+        }
+
+        .search-label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .search-input {
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            color: var(--text-main);
+            outline: none;
+            width: 100%;
+        }
+
+        .search-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 30px;
+            font-size: 16px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .search-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* 统计数据 */
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        /* 热门小区 */
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .section-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .community-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .community-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-banner {
+            height: 160px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .card-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff4d4f;
+        }
+
+        .card-price small {
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        /* 在售房源 */
+        .house-list {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+        }
+
+        .house-item {
+            display: flex;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s;
+        }
+
+        .house-item:last-child {
+            border-bottom: none;
+        }
+
+        .house-item:hover {
+            background-color: #fafbfc;
+        }
+
+        .house-thumb {
+            width: 240px;
+            height: 180px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-right: 20px;
+            flex-shrink: 0;
+            background: #eee;
+        }
+
+        .house-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .house-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .house-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .house-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .house-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #e6f7ff;
+            color: var(--primary-color);
+            border: 1px solid #91d5ff;
+        }
+
+        .house-features {
+            display: flex;
+            gap: 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .house-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .house-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff4d4f;
+        }
+
+        .house-price small {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .agent-info {
+            text-align: right;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .agent-name {
+            font-weight: 600;
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* 桥东资讯 */
+        .news-section {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .news-date {
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .date-day {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .date-month {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .news-title {
+            font-size: 15px;
+            color: var(--text-main);
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-title:hover {
+            color: var(--primary-color);
+        }
+
+        /* 购房指南 */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .guide-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .guide-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .guide-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .guide-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* 页脚 */
+        footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-item {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 10px 0;
+                min-width: auto;
+            }
+
+            .search-item:last-child {
+                border-bottom: none;
+            }
+
+            .search-btn {
+                margin: 10px 0 0;
+                width: 100%;
+            }
+
+            .house-item {
+                flex-direction: column;
+            }
+
+            .house-thumb {
+                width: 100%;
+                height: 200px;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .house-content {
+                align-items: flex-start;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>桥东二手房网</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">二手房</a>
+                <a href="#">小区房价</a>
+                <a href="#">租房</a>
+                <a href="#">楼市资讯</a>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-link">登录</a>
+                <a href="#" class="btn-link">注册</a>
+                <a href="#" class="btn-link">发布房源</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 搜索框 -->
+        <section class="search-section">
+            <form class="search-box">
+                <div class="search-item">
+                    <span class="search-label">区域</span>
+                    <select class="search-input">
+                        <option value="">全桥东区</option>
+                        <option value="1">河东街道</option>
+                        <option value="2">解放路街道</option>
+                        <option value="3">红旗路街道</option>
+                        <option value="4">车站街道</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <span class="search-label">小区</span>
+                    <input type="text" class="search-input" placeholder="输入小区名称">
+                </div>
+                <div class="search-item">
+                    <span class="search-label">价格</span>
+                    <select class="search-input">
+                        <option value="">不限</option>
+                        <option value="1">100万以下</option>
+                        <option value="2">100-200万</option>
+                        <option value="3">200-300万</option>
+                        <option value="4">300万以上</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <span class="search-label">户型</span>
+                    <select class="search-input">
+                        <option value="">不限</option>
+                        <option value="1">一室</option>
+                        <option value="2">两室</option>
+                        <option value="3">三室</option>
+                        <option value="4">四室及以上</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-btn">搜索房源</button>
+            </form>
+        </section>
+
+        <!-- 统计数据 -->
+        <section class="stats-bar">
+            <div>桥东区今日在售房源：<strong>1,245</strong> 套</div>
+            <div>今日新增：<strong>36</strong> 套</div>
+            <div>桥东区本月均价：<strong>8,450</strong> 元/㎡</div>
+        </section>
+
+        <!-- 热门小区推荐 -->
+        <section>
+            <div class="section-title">
+                <span>🔥 热门小区</span>
+                <a href="#">查看更多 ></a>
+            </div>
+            <div class="community-grid">
+                <article class="community-card">
+                    <div class="card-banner">
+                        <img src="https://picsum.photos/seed/house1/400/300" alt="锦绣江南小区">
+                        <span class="card-tag">热门</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">锦绣江南小区</h3>
+                        <div class="card-info">
+                            <span>2室2厅 | 89㎡</span>
+                            <span>距地铁1.2km</span>
+                        </div>
+                        <div class="card-price">¥ 105万 <small>/ 均价</small></div>
+                    </div>
+                </article>
+
+                <article class="community-card">
+                    <div class="card-banner">
+                        <img src="https://picsum.photos/seed/house2/400/300" alt="阳光花园">
+                        <span class="card-tag">新上</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">阳光花园</h3>
+                        <div class="card-info">
+                            <span>3室1厅 | 110㎡</span>
+                            <span>近学校</span>
+                        </div>
+                        <div class="card-price">¥ 132万 <small>/ 均价</small></div>
+                    </div>
+                </article>
+
+                <article class="community-card">
+                    <div class="card-banner">
+                        <img src="https://picsum.photos/seed/house3/400/300" alt="御景华庭">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">御景华庭</h3>
+                        <div class="card-info">
+                            <span>2室1厅 | 75㎡</span>
+                            <span>精装修</span>
+                        </div>
+                        <div class="card-price">¥ 88万 <small>/ 均价</small></div>
+                    </div>
+                </article>
+
+                <article class="community-card">
+                    <div class="card-banner">
+                        <img src="https://picsum.photos/seed/house4/400/300" alt="幸福里家园">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">幸福里家园</h3>
+                        <div class="card-info">
+                            <span>3室2厅 | 128㎡</span>
+                            <span>满五唯一</span>
+                        </div>
+                        <div class="card-price">¥ 158万 <small>/ 均价</small></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 在售房源列表 -->
+        <section>
+            <div class="section-title">
+                <span>🏠 桥东最新房源</span>
+                <a href="#">查看全部 ></a>
+            </div>
+            <div class="house-list">
+                <article class="house-item">
+                    <div class="house-thumb">
+                        <img src="https://picsum.photos/seed/apt1/300/200" alt="房源图片">
+                    </div>
+                    <div class="house-content">
+                        <div class="house-header">
+                            <div>
+                                <h2 class="house-title">阳光花园 精装两居室 南北通透 采光极佳</h2>
+                                <div class="house-tags">
+                                    <span class="tag">随时看房</span>
+                                    <span class="tag">满五唯一</span>
+                                    <span class="tag">低楼层</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="house-features">
+                            <div class="feature-item">📍 桥东区红旗路街道</div>
+                            <div class="feature-item">📐 2室1厅 85㎡</div>
+                            <div class="feature-item">🚿 南北通透</div>
+                            <div class="feature-item">🏢 2005年建</div>
+                        </div>
+                        <div class="house-footer">
+                            <div class="house-price">¥ 78万 <small>均价 9176元/㎡</small></div>
+                            <div class="agent-info">
+                                <span class="agent-name">张经理 138****8888</span>
+                                <span>已带看 35次</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="house-item">
+                    <div class="house-thumb">
+                        <img src="https://picsum.photos/seed/apt2/300/200" alt="房源图片">
+                    </div>
+                    <div class="house-content">
+                        <div class="house-header">
+                            <div>
+                                <h2 class="house-title">锦绣江南 现房拎包入住 家里有车首选车位</h2>
+                                <div class="house-tags">
+                                    <span class="tag">急售</span>
+                                    <span class="tag">带车位</span>
+                                    <span class="tag">高楼层</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="house-features">
+                            <div class="feature-item">📍 桥东区河东街道</div>
+                            <div class="feature-item">📐 3室2厅 110㎡</div>
+                            <div class="feature-item">🚿 地暖</div>
+                            <div class="feature-item">🏢 2010年建</div>
+                        </div>
+                        <div class="house-footer">
+                            <div class="house-price">¥ 108万 <small>均价 9818元/㎡</small></div>
+                            <div class="agent-info">
+                                <span class="agent-name">李专员 139****6666</span>
+                                <span>已带看 12次</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="house-item">
+                    <div class="house-thumb">
+                        <img src="https://picsum.photos/seed/apt3/300/200" alt="房源图片">
+                    </div>
+                    <div class="house-content">
+                        <div class="house-header">
+                            <div>
+                                <h2 class="house-title">御景华庭 顶层复式 享受尊贵生活视野开阔</h2>
+                                <div class="house-tags">
+                                    <span class="tag">顶层</span>
+                                    <span class="tag">复式</span>
+                                    <span class="tag">精装修</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="house-features">
+                            <div class="feature-item">📍 桥东区车站街道</div>
+                            <div class="feature-item">📐 3室1厅 98㎡</div>
+                            <div class="feature-item">🚿 中央空调</div>
+                            <div class="feature-item">🏢 2008年建</div>
+                        </div>
+                        <div class="house-footer">
+                            <div class="house-price">¥ 115万 <small>均价 11734元/㎡</small></div>
+                            <div class="agent-info">
+                                <span class="agent-name">王店长 137****5555</span>
+                                <span>已带看 28次</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 桥东资讯 -->
+        <section>
+            <div class="section-title">
+                <span>📰 桥东楼市资讯</span>
+                <a href="#">更多资讯 ></a>
+            </div>
+            <div class="news-section">
+                <div class="news-list">
+                    <a href="#" class="news-item">
+                        <div class="news-date">
+                            <div class="date-day">15</div>
+                            <div class="date-month">10月</div>
+                        </div>
+                        <div class="news-title">桥东区2023年第三季度房地产市场运行情况分析报告</div>
+                    </a>
+                    <a href="#" class="news-item">
+                        <div class="news-date">
+                            <div class="date-day">12</div>
+                            <div class="date-month">10月</div>
+                        </div>
+                        <div class="news-title">桥东区教育局发布最新学区划分调整公告，涉及多所热门小学</div>
+                    </a>
+                    <a href="#" class="news-item">
+                        <div class="news-date">
+                            <div class="date-day">08</div>
+                            <div class="date-month">10月</div>
+                        </div>
+                        <div class="news-title">刚需购房必看！桥东区最新购房优惠政策解读</div>
+                    </a>
+                    <a href="#" class="news-item">
+                        <div class="news-date">
+                            <div class="date-day">01</div>
+                            <div class="date-month">10月</div>
+                        </div>
+                        <div class="news-title">老旧小区改造最新进展：桥东区多片区提升工程全面启动</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 购房指南 -->
+        <section>
+            <div class="section-title">💡 购房服务指南</div>
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <div class="guide-icon">📝</div>
+                    <h4 class="guide-title">买房流程</h4>
+                    <p class="guide-desc">从看房到签约过户，全流程详解，助您避坑。</p>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon">💰</div>
+                    <h4 class="guide-title">税费计算</h4>
+                    <p class="guide-desc">二手房交易涉及哪些税费？一键在线计算。</p>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon">🔍</div>
+                    <h4 class="guide-title">房源核验</h4>
+                    <p class="guide-desc">如何辨别真房源？桥东二手房网为您把关。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>桥东二手房网</h3>
+                    <p>专注桥东区房产信息服务，致力于为购房者提供真实、准确、及时的二手房房源信息及市场动态。我们用心服务每一位桥东的居民。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">二手房首页</a></li>
+                        <li><a href="#">小区房价查询</a></li>
+                        <li><a href="#">租房专区</a></li>
+                        <li><a href="#">新房楼盘</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>购房指南</h4>
+                    <ul>
+                        <li><a href="#">交易流程</a></li>
+                        <li><a href="#">税费政策</a></li>
+                        <li><a href="#">贷款知识</a></li>
+                        <li><a href="#">签约技巧</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>电话：400-123-4567</li>
+                        <li>邮箱：service@qiaodong.com</li>
+                        <li>地址：桥东区阳光大街88号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 桥东二手房网 版权所有 | 本网站信息仅供参考，不作为交易依据</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+  </html>
