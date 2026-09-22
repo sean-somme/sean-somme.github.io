@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="体操女 - 专业女子体操资讯平台。提供世界级体操赛事直播、奥运冠军训练秘籍、女子体操技巧教学、平衡木与自由操评分标准解读，以及运动员生涯数据追踪。">
+    <meta name="keywords" content="体操女,女子体操,奥运体操,平衡木,自由操,竞技体操,体操技巧,体操比赛">
+    <title>体操女-世界顶尖女子竞技体操赛事与技巧解析平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d63384;
+            --secondary-color: #6f42c1;
+            --accent-color: #ffc107;
+            --dark-bg: #1a1a2e;
+            --card-bg: #16213e;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --spacing-xl: 64px;
+            --radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(109, 66, 193, 0.6)), url('https://picsum.photos/seed/olympic/1920/1080.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: var(--spacing-xl);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+            display: block;
+            font-size: 4rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(214, 51, 132, 0.4);
+        }
+
+        /* 统计数据栏 */
+        .stats-bar {
+            background-color: var(--card-bg);
+            padding: var(--spacing-lg) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* 核心内容区 */
+        .main-content {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 30px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* 赛事直播/最新 */
+        .live-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: rgba(214, 51, 132, 0.3);
+        }
+
+        .card-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: var(--spacing-md);
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.4;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 侧边栏：赛程 */
+        .sidebar {
+            background-color: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            height: fit-content;
+        }
+
+        .schedule-list li {
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .schedule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .event-time {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .event-name {
+            font-size: 0.95rem;
+        }
+
+        .event-loc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* 技巧解析 */
+        .skills-section {
+            background-color: rgba(255, 255, 255, 0.02);
+            padding: var(--spacing-xl) 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .skill-card {
+            background: linear-gradient(145deg, var(--card-bg), #1f2a48);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--secondary-color);
+        }
+
+        .skill-card h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .learn-more {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* 历史人物/传奇 */
+        .legends-section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .legend-carousel {
+            display: flex;
+            gap: var(--spacing-lg);
+            overflow-x: auto;
+            padding-bottom: var(--spacing-md);
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--dark-bg);
+        }
+
+        .legend-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .legend-carousel::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .legend-card {
+            min-width: 300px;
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+
+        .legend-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto var(--spacing-md);
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .legend-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .legend-country {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .legend-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #0f0f1a;
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero h1 span {
+                font-size: 3rem;
+            }
+            .nav-links {
+                display: none; /* 简化处理，移动端隐藏导航链接 */
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+            .live-section {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h12"/><path d="M12 6v12"/><path d="M18 6l-6 12-6-12"/></svg>
+                <span>体操女</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">赛事直播</a>
+                <a href="#">技巧教学</a>
+                <a href="#">奥运专题</a>
+                <a href="#">运动员档案</a>
+                <a href="#">器材评测</a>
+            </nav>
+            <button class="search-btn" aria-label="搜索">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1><span>力量与美</span>的极致绽放</h1>
+                <p>探索女子竞技体操的极限魅力。从平衡木的惊险一跃到自由操的空中旋转，这里汇聚了全球顶尖赛事、专业训练指南与奥运冠军故事。</p>
+                <a href="#latest" class="cta-button">查看最新赛事</a>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>32</h3>
+                    <p>奥运参赛项目</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4</h3>
+                    <p>单项评分标准</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10</h3>
+                    <p>奥运满分难度</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>专业赛事直播</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live News Section -->
+        <section class="container main-content" id="latest">
+            <h2 class="section-title">最新赛事与资讯</h2>
+            <div class="live-section">
+                <div class="news-grid">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/gym1/400/300" alt="体操比赛现场" class="card-image">
+                        <div class="card-body">
+                            <span class="card-tag">赛事直击</span>
+                            <h3 class="card-title">2024巴黎奥运会体操资格赛：中国女队强势晋级团体决赛</h3>
+                            <div class="card-meta">
+                                <span>2024-05-12</span>
+                                <span>阅读 2.4k</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/gym2/400/300" alt="平衡木训练" class="card-image">
+                        <div class="card-body">
+                            <span class="card-tag">训练技巧</span>
+                            <h3 class="card-title">平衡木落地稳定性训练法：如何减少裁判扣分风险</h3>
+                            <div class="card-meta">
+                                <span>2024-05-10</span>
+                                <span>阅读 1.8k</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/gym3/400/300" alt="自由操表演" class="card-image">
+                        <div class="card-body">
+                            <span class="card-tag">技术分析</span>
+                            <h3 class="card-title">自由操高低杠连接动作解析：TTC连接带来的加分技巧</h3>
+                            <div class="card-meta">
+                                <span>2024-05-08</span>
+                                <span>阅读 3.1k</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <aside class="sidebar">
+                    <h3 style="margin-bottom: 20px;">近期赛程安排</h3>
+                    <ul class="schedule-list">
+                        <li>
+                            <div>
+                                <div class="event-time">今日 19:00</div>
+                                <div class="event-name">女子个人全能决赛</div>
+                            </div>
+                            <div class="event-loc">东京体育馆</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="event-time">明日 10:00</div>
+                                <div class="event-name">平衡木半决赛</div>
+                            </div>
+                            <div class="event-loc">巴黎贝尔西体育馆</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="event-time">明日 14:30</div>
+                                <div class="event-name">高低杠团体接力</div>
+                            </div>
+                            <div class="event-loc">巴黎贝尔西体育馆</div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="event-time">后天 09:30</div>
+                                <div class="event-name">自由操资格赛</div>
+                            </div>
+                            <div class="event-loc">巴黎贝尔西体育馆</div>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section">
+            <div class="container">
+                <h2 class="section-title">四大单项深度解析</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">⚖️</div>
+                        <h3>平衡木</h3>
+                        <p>考验运动员的平衡感与心理素质。核心在于腾空高度、转体周数及落地的稳定性。了解最新的E分加分规则。</p>
+                        <a href="#" class="learn-more">查看平衡木指南 &rarr;</a>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🤸</div>
+                        <h3>自由操</h3>
+                        <p>融合了舞蹈、技巧与音乐的艺术体操。重点在于动作的连贯性、节奏感以及成套动作的难度编排。</p>
+                        <a href="#" class="learn-more">查看自由操指南 &rarr;</a>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🧗</div>
+                        <h3>高低杠</h3>
+                        <p>展示上肢力量与身体柔韧性的项目。高难度的腾空回环与交换腿动作是区分顶尖选手的关键。</p>
+                        <a href="#" class="learn-more">查看高低杠指南 &rarr;</a>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🪜</div>
+                        <h3>跳马</h3>
+                        <p>爆发力与空中姿态的完美结合。从屈体到踺子，不同的腾越形式决定了动作的难度系数。</p>
+                        <a href="#" class="learn-more">查看跳马指南 &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legends Section -->
+        <section class="container legends-section">
+            <h2 class="section-title">体操传奇人物</h2>
+            <div class="legend-carousel">
+                <div class="legend-card">
+                    <img src="https://picsum.photos/seed/legend1/200/200" alt="运动员头像" class="legend-img">
+                    <h4 class="legend-name">拜尔斯</h4>
+                    <p class="legend-country">美国 (USA)</p>
+                    <p class="legend-desc">现代体操史上最具统治力的选手，多次打破世界纪录。</p>
+                </div>
+                <div class="legend-card">
+                    <img src="https://picsum.photos/seed/legend2/200/200" alt="运动员头像" class="legend-img">
+                    <h4 class="legend-name">霍尔金娜</h4>
+                    <p class="legend-country">俄罗斯 (RUS)</p>
+                    <p class="legend-desc">“冰上公主”，以优雅的体态和极高的艺术表现力著称。</p>
+                </div>
+                <div class="legend-card">
+                    <img src="https://picsum.photos/seed/legend3/200/200" alt="运动员头像" class="legend-img">
+                    <h4 class="legend-name">丘索维金娜</h4>
+                    <p class="legend-country">乌兹别克斯坦</p>
+                    <p class="legend-desc">传奇妈妈体操运动员，为子治病坚持征战赛场。</p>
+                </div>
+                <div class="legend-card">
+                    <img src="https://picsum.photos/seed/legend4/200/200" alt="运动员头像" class="legend-img">
+                    <h4 class="legend-name">马内卡</h4>
+                    <p class="legend-country">德国 (GER)</p>
+                    <p class="legend-desc">2016年里约奥运全能冠军，以独特的“空中转体”动作闻名。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于体操女</h4>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">
+                        体操女致力于为全球体操爱好者提供最专业、最及时的资讯服务。我们关注每一个高光时刻，解析每一个动作细节。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>热门栏目</h4>
+                    <ul>
+                        <li><a href="#">赛事日历</a></li>
+                        <li><a href="#">奥运奖牌榜</a></li>
+                        <li><a href="#">运动员百科</a></li>
+                        <li><a href="#">器材选购指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>学习资源</h4>
+                    <ul>
+                        <li><a href="#">裁判法解读</a></li>
+                        <li><a href="#">基础体能训练</a></li>
+                        <li><a href="#">营养与恢复</a></li>
+                        <li><a href="#">伤病防护</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">投稿合作</a></li>
+                        <li><a href="#">广告投放</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 体操女 - 专注女子竞技体操资讯平台. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
