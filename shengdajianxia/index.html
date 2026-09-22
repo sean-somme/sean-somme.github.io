@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盛大剑侠-经典武侠网游怀旧与资料大全</title>
+    <meta name="description" content="盛大剑侠官方网站，提供剑侠情缘系列游戏历史回顾、经典版本下载指南、角色职业介绍及怀旧攻略。致力于还原经典武侠世界，为老玩家与新朋友提供权威的游戏资讯与交流平台。">
+    <meta name="keywords" content="盛大剑侠, 剑侠情缘, 武侠网游, 怀旧服, 经典下载, 职业攻略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B0000; /* 深红，象征热血武侠 */
+            --secondary-color: #D4AF37; /* 金色，象征江湖地位 */
+            --bg-dark: #1a1a1a;
+            --bg-card: #2b2b2b;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            border-bottom: 2px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #fff;
+            font-size: 14px;
+            font-weight: normal;
+            background: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav a.active {
+            color: var(--secondary-color);
+        }
+
+        .header-actions button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .header-actions button:hover {
+            background-color: #a50000;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-dark)), url('https://picsum.photos/seed/swordhero/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            color: #ddd;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background-color: var(--secondary-color);
+            color: #000;
+            padding: 12px 36px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #f1c40f;
+            transform: translateY(-2px);
+        }
+
+        /* 章节通用样式 */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 8px auto 0;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        /* 经典回顾卡片 */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--secondary-color);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #444;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 8px;
+            background-color: rgba(139, 0, 0, 0.3);
+            color: #ff6b6b;
+            border-radius: 4px;
+        }
+
+        /* 职业介绍 */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .class-card {
+            background: linear-gradient(145deg, #2b2b2b, #222);
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 8px;
+            border-top: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .class-card:hover {
+            border-top-color: var(--secondary-color);
+        }
+
+        .class-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .class-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .class-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* 攻略专区 */
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .guide-item {
+            display: flex;
+            background-color: var(--bg-card);
+            padding: 16px;
+            border-radius: 6px;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .guide-item:hover {
+            background-color: #333;
+        }
+
+        .guide-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: rgba(255,255,255,0.05);
+            margin-right: 20px;
+            min-width: 40px;
+        }
+
+        .guide-content h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .guide-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* 留言/社区 */
+        .community-box {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .community-box p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .community-btn {
+            background-color: transparent;
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+            padding: 10px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .community-btn:hover {
+            background-color: var(--secondary-color);
+            color: #000;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #111;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 13px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+                gap: 10px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .class-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .guide-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                盛大剑侠
+                <span>怀旧专区</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#history" class="active">游戏历史</a></li>
+                    <li><a href="#classes">职业介绍</a></li>
+                    <li><a href="#guides">新手攻略</a></li>
+                    <li><a href="#community">玩家社区</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button onclick="window.location.href='#download'">立即重温</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>重温经典 · 再续江湖梦</h1>
+                <p>盛大剑侠情缘，承载无数人青春记忆的武侠世界。在这里，重温经典剧情，体验原汁原味的门派对决。</p>
+                <a href="#download" class="cta-button">下载怀旧客户端</a>
+            </div>
+        </section>
+
+        <!-- 游戏历史回顾 -->
+        <section id="history" class="container">
+            <div class="section-header">
+                <h2>经典岁月</h2>
+                <p>回顾盛大剑侠情缘系列的发展历程与重要节点</p>
+            </div>
+            <div class="timeline-grid">
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/sword1/400/250" alt="2003年剑侠情缘一代">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">2003年 剑侠情缘一代</h3>
+                        <p class="card-desc">西山居首款3D武侠网游，开启了中国网游武侠纪元，奠定了“剑侠”系列的基调。</p>
+                        <div class="card-tags">
+                            <span class="tag">开创性</span>
+                            <span class="tag">3D网游</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/sword2/400/250" alt="2006年剑侠情缘2">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">2006年 剑侠情缘2</h3>
+                        <p class="card-desc">引入五行相生相克系统，剧情更加宏大，画面表现力大幅提升，成为当时的人气之作。</p>
+                        <div class="card-tags">
+                            <span class="tag">五行系统</span>
+                            <span class="tag">剧情</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/sword3/400/250" alt="2008年剑侠情缘网络版叁">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">2008年 剑侠情缘网络版叁</h3>
+                        <p class="card-desc">彻底革新战斗系统，增加空中战斗与组合技，是系列中口碑与销量双丰收的里程碑。</p>
+                        <div class="card-tags">
+                            <span class="tag">空中战斗</span>
+                            <span class="tag">口碑佳作</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 职业介绍 -->
+        <section id="classes" class="container" style="background-color: #151515; border-radius: 8px; padding: 40px;">
+            <div class="section-header">
+                <h2>门派江湖</h2>
+                <p>选择你的出身，掌握独特的武学秘籍</p>
+            </div>
+            <div class="class-grid">
+                <div class="class-card" style="border-top-color: #ff4d4f;">
+                    <span class="class-icon">⚔️</span>
+                    <div class="class-name">天王</div>
+                    <div class="class-desc">正道领袖，近战坦克，高防御与血量，战场核心。</div>
+                </div>
+                <div class="class-card" style="border-top-color: #faad14;">
+                    <span class="class-icon">🏹</span>
+                    <div class="class-name">唐门</div>
+                    <div class="class-desc">暗器宗师，远程爆发，机动性强，擅长控制与暗杀。</div>
+                </div>
+                <div class="class-card" style="border-top-color: #13c2c2;">
+                    <span class="class-icon">🌊</span>
+                    <div class="class-name">翠烟</div>
+                    <div class="class-desc">冰系法师，群体控制，优雅灵动，团队中的强力辅助。</div>
+                </div>
+                <div class="class-card" style="border-top-color: #722ed1;">
+                    <span class="class-icon">🐉</span>
+                    <div class="class-name">武当</div>
+                    <div class="class-desc">道家宗师，远程输出，控制精准，讲究以柔克刚。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 新手攻略 -->
+        <section id="guides" class="container">
+            <div class="section-header">
+                <h2>新手指南</h2>
+                <p>从入门到精通，助你快速融入江湖</p>
+            </div>
+            <div class="guide-list">
+                <a href="#" class="guide-item">
+                    <div class="guide-number">01</div>
+                    <div class="guide-content">
+                        <h3>新手角色创建与属性分配技巧</h3>
+                        <div class="guide-meta">发布于 2023-10 | 浏览量 12k</div>
+                    </div>
+                </a>
+                <a href="#" class="guide-item">
+                    <div class="guide-number">02</div>
+                    <div class="guide-content">
+                        <h3>五行相生相克系统详解：如何克敌制胜</h3>
+                        <div class="guide-meta">发布于 2023-09 | 浏览量 15k</div>
+                    </div>
+                </a>
+                <a href="#" class="guide-item">
+                    <div class="guide-number">03</div>
+                    <div class="guide-content">
+                        <h3>盛大剑侠怀旧服经济系统与赚钱攻略</h3>
+                        <div class="guide-meta">发布于 2023-11 | 浏览量 8k</div>
+                    </div>
+                </a>
+                <a href="#" class="guide-item">
+                    <div class="guide-number">04</div>
+                    <div class="guide-content">
+                        <h3>常见副本BOSS机制与团队配合要点</h3>
+                        <div class="guide-meta">发布于 2023-10 | 浏览量 10k</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 玩家社区/互动 -->
+        <section id="community" class="container">
+            <div class="community-box">
+                <h3>寻找老友，重聚江湖</h3>
+                <p>无论你是怀念当年的热血战斗，还是想寻找失散多年的战友，这里都是你的归宿。</p>
+                <button class="community-btn">加入玩家交流群</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>盛大剑侠</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">游戏条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">游戏下载</a></li>
+                        <li><a href="#">官方论坛</a></li>
+                        <li><a href="#">版本更新</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助支持</h4>
+                    <ul>
+                        <li><a href="#">客服中心</a></li>
+                        <li><a href="#">Bug反馈</a></li>
+                        <li><a href="#">账号找回</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 盛大剑侠怀旧专区. All Rights Reserved. 本站为玩家非官方资源整理站。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
