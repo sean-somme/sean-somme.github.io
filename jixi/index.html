@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jixiantiaozhan - 极限挑战者：体能与意志的终极对决</title>
+    <meta name="description" content="jixiantiaozhan 专题页面，提供极限挑战相关的训练指南、装备评测、赛事资讯及安全注意事项，助您突破身体极限，完成不可能的任务。">
+    <meta name="keywords" content="jixiantiaozhan,极限挑战,体能训练,户外探险,越野跑,攀岩,安全装备">
+    <style>
+        :root {
+            --primary-color: #ff4d4d;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --bg-light: #f4f6f9;
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #e60000;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://picsum.photos/seed/mountainrun/1600/900') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--secondary-color);
+        }
+
+        /* Stats Section */
+        .stats-bar {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 40px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* Challenge Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background-color: #ffebee;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .card-link::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.3s;
+        }
+
+        .card-link:hover::after {
+            margin-left: 10px;
+        }
+
+        /* Training Guide */
+        .training-section {
+            background-color: var(--white);
+            padding: 60px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 80px;
+        }
+
+        .guide-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .guide-item {
+            position: relative;
+        }
+
+        .guide-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #ffebee;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .guide-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .guide-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Safety Warning */
+        .safety-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 4px;
+        }
+
+        .safety-box h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .safety-box ul {
+            padding-left: 20px;
+            color: #856404;
+        }
+
+        .safety-box li {
+            margin-bottom: 8px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 80px auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-col p {
+            opacity: 0.7;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>⚡</span> jixiantiaozhan
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#categories">挑战项目</a></li>
+                    <li><a href="#training">训练指南</a></li>
+                    <li><a href="#safety">安全须知</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#join" class="cta-btn">立即挑战</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>突破极限，挑战自我</h1>
+                <p>探索jixiantiaozhan的世界，无论是高海拔攀登、极地穿越还是城市障碍跑，我们为您提供专业的装备、科学的训练计划与安全的保障。</p>
+                <div class="hero-buttons">
+                    <a href="#categories" class="btn btn-primary">探索项目</a>
+                    <a href="#training" class="btn btn-outline">制定计划</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-bar">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>全球挑战项目</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10k+</h3>
+                    <p>安全完成者</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>专业装备支持</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>紧急救援服务</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="main-content">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>热门挑战领域</h2>
+                        <p>选择适合你的挑战类型，开启非凡之旅</p>
+                    </div>
+                </div>
+
+                <div class="categories-grid">
+                    <!-- Card 1 -->
+                    <article class="category-card">
+                        <img src="https://picsum.photos/seed/climbing/400/250" alt="高山攀登" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">高山探险</span>
+                            <h3>高山攀登</h3>
+                            <p>挑战世界级高峰，体验缺氧环境下的意志力考验。包含雪山徒步、冰岩攀登及高海拔生存训练。</p>
+                            <a href="#" class="card-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="category-card">
+                        <img src="https://picsum.photos/seed/ultrarun/400/250" alt="越野跑" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">耐力运动</span>
+                            <h3>越野跑挑战</h3>
+                            <p>在复杂地形中完成长距离奔跑，考验心肺功能与路线判断。从百公里超马到森林定向跑。</p>
+                            <a href="#" class="card-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="category-card">
+                        <img src="https://picsum.photos/seed/canyoning/400/250" alt="峡谷探险" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">极限水域</span>
+                            <h3>峡谷探险</h3>
+                            <p>深入幽深峡谷，体验垂直下降与激流穿越。结合绳索技术与水域安全知识，极具挑战性。</p>
+                            <a href="#" class="card-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="category-card">
+                        <img src="https://picsum.photos/seed/urban/400/250" alt="城市障碍" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">城市竞技</span>
+                            <h3>城市障碍跑</h3>
+                            <p>在钢筋水泥丛林中完成体能与智力的双重挑战，包含攀爬、跳跃与团队协作环节。</p>
+                            <a href="#" class="card-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="category-card">
+                        <img src="https://picsum.photos/seed/survival/400/250" alt="荒野生存" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">生存技能</span>
+                            <h3>荒野生存</h3>
+                            <p>脱离现代文明，在无补给环境下通过寻找水源、搭建庇护所和生火来维持生命。</p>
+                            <a href="#" class="card-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="category-card">
+                        <img src="https://picsum.photos/seed/diving/400/250" alt="深海潜水" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">深潜探索</span>
+                            <h3>深潜挑战</h3>
+                            <p>突破呼吸界限，探索未知海域的奥秘。包含水肺潜水、自由潜及水下摄影技术挑战。</p>
+                            <a href="#" class="card-link">了解更多</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety Warning -->
+        <section id="safety" class="container">
+            <div class="safety-box">
+                <h3>⚠️ 极限挑战安全第一</h3>
+                <p>在进行任何高难度jixiantiaozhan活动前，请务必阅读以下核心原则：</p>
+                <ul>
+                    <li><strong>装备检查：</strong> 所用绳索、安全带、登山靴必须经过专业机构认证且状态良好。</li>
+                    <li><strong>天气监测：</strong> 密切关注气象预报，恶劣天气严禁出行，切勿逞强。</li>
+                    <li><strong>结伴而行：</strong> 极限活动严禁单人行动，必须配备至少一名经验丰富的向导。</li>
+                    <li><strong>体能储备：</strong> 确保在出发前达到标准体能指标，并携带足量的高热量补给。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Training Guide -->
+        <section id="training" class="main-content">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>科学训练指南</h2>
+                        <p>针对不同挑战项目的体能与技能提升方案</p>
+                    </div>
+                </div>
+
+                <div class="training-section">
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <div class="guide-icon">🧗</div>
+                            <h4>核心力量训练</h4>
+                            <p>针对攀岩和越野跑，重点强化腰腹肌群与背部力量，提高身体稳定性和抗疲劳能力。</p>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">🥾</div>
+                            <h4>长距离耐力跑</h4>
+                            <p>循序渐进增加跑量，提升最大摄氧量，学会在长距离运动中控制呼吸节奏与补给策略。</p>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">🧠</div>
+                            <h4>心理抗压训练</h4>
+                            <p>通过模拟困难场景，培养在极限状态下保持冷静、克服恐惧的心理素质。</p>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">🚑</div>
+                            <h4>急救与自救</h4>
+                            <p>掌握野外骨折固定、失温处理、心肺复苏（CPR）及紧急求救信号发送技能。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="main-content">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>常见问题解答</h2>
+                        <p>关于jixiantiaozhan的疑问与解答</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <div class="faq-question">新手适合参加哪种类型的极限挑战？</div>
+                        <div class="faq-answer">建议从难度较低、有完善救援体系的项目开始，例如城市障碍跑或短距离越野跑，逐步积累经验后再尝试高山或极地探险。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">需要具备哪些基础体能才能开始？</div>
+                        <div class="faq-answer">通常建议具备每周3次、每次30分钟以上的中低强度有氧运动基础，以及一定的核心力量，同时无严重心脏病或高血压病史。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">挑战过程中的装备预算大概是多少？</div>
+                        <div class="faq-answer">入门级装备预算在2000-5000元人民币左右，专业级装备可能需要上万元。安全装备（头盔、安全带、绳索）不建议购买廉价二手产品。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如果在中途体力不支怎么办？</div>
+                        <div class="faq-answer">请立即停止前进，寻找安全地点休息并补充能量。如果无法继续，应立即启动预设的救援流程或联系向导协助下撤。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color:white; margin-bottom: 20px; display:inline-block;">
+                        <span>⚡</span> jixiantiaozhan
+                    </a>
+                    <p>致力于推广科学、安全的极限运动文化，连接全球挑战者，分享突破自我的精彩瞬间。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>探索项目</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">高山攀登</a></li>
+                        <li><a href="#">越野跑</a></li>
+                        <li><a href="#">峡谷探险</a></li>
+                        <li><a href="#">城市障碍</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源中心</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">装备评测</a></li>
+                        <li><a href="#">训练计划</a></li>
+                        <li><a href="#">安全手册</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">加入团队</a></li>
+                        <li><a href="#">商业合作</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 jixiantiaozhan. All Rights Reserved. 保留所有权利。
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // 简单的FAQ手风琴效果
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentNode;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // 平滑滚动修正
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+                          </html>
