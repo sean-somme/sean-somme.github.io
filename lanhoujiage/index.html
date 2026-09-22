@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="懒猴价格查询与购买指南：提供懒猴（蜂猴）市场价格分析、饲养成本、购买渠道及法律注意事项。全面解析不同等级懒猴的售价，帮助您了解投资与宠物市场的行情。">
+    <meta name="keywords" content="懒猴价格,蜂猴价格,懒猴购买,懒猴饲养,蜂猴市场,濒危动物交易">
+    <title>懒猴价格-市场行情分析与饲养投资指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2d6a4f;
+            --secondary-color: #40916c;
+            --accent-color: #d8f3dc;
+            --text-main: #1b4332;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Alert Box */
+        .alert-box {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #ffeeba;
+        }
+
+        /* Price Table Section */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .price-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .price-table th, .price-table td {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .price-table th {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .price-tag {
+            font-weight: bold;
+            color: #d32f2f;
+            font-size: 1.1rem;
+        }
+
+        /* Factors Grid */
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .factor-item {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: var(--radius);
+        }
+
+        .factor-item h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Legal Warning */
+        .legal-warning {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left: 5px solid #f5c6cb;
+            padding: 20px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
+        .legal-warning h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .faq-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1b4332;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .price-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>🦍</span> 懒猴价格网
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#market">价格行情</a></li>
+                    <li><a href="#factors">影响因素</a></li>
+                    <li><a href="#legal">法律风险</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="alert-box">
+        ⚠️ 重要提示：懒猴（蜂猴）属于国家一级保护动物，严禁私人交易与非法饲养。本页面仅提供市场行情科普与法律知识科普。
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>懒猴价格深度解析</h1>
+            <p>深入了解蜂猴的市场价值、饲养成本及法律红线。作为世界上最小的灵长类动物之一，懒猴不仅价格不菲，更涉及复杂的法律监管。</p>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Market Overview -->
+        <section id="market" class="section">
+            <div class="section-header">
+                <h2>当前市场行情概览</h2>
+                <p>基于网络公开信息整理，仅供了解市场结构参考</p>
+            </div>
+
+            <div class="price-card">
+                <h3>不同类型懒猴价格区间参考</h3>
+                <p style="margin-top:10px; color: #666; font-size: 0.9rem;">*注：以下价格仅为模拟市场行情分析，实际交易受多种因素影响，且严禁交易。</p>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>类型/等级</th>
+                            <th>描述</th>
+                            <th>价格区间（估算）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>野生个体</td>
+                            <td>捕捉于野外，健康状况未知，无合法来源证明。</td>
+                            <td class="price-tag">极难获取 / 极高</td>
+                        </tr>
+                        <tr>
+                            <td>人工繁育幼崽</td>
+                            <td>正规动物园或科研机构繁育，具备合法证件。</td>
+                            <td class="price-tag">数十万至数百万</td>
+                        </tr>
+                        <tr>
+                            <td>科研/教学用途</td>
+                            <td>用于生物多样性研究、教学演示。</td>
+                            <td class="price-tag">按项目评估</td>
+                        </tr>
+                        <tr>
+                            <td>非法黑市（概算）</td>
+                            <td>无任何手续，私下交易，风险极高。</td>
+                            <td class="price-tag">信息不透明</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Factors Section -->
+        <section id="factors" class="section">
+            <div class="section-header">
+                <h2>影响价格的关键因素</h2>
+                <p>为何懒猴价格如此高昂？主要受以下因素制约</p>
+            </div>
+
+            <div class="factors-grid">
+                <article class="factor-item">
+                    <h3>🛡️ 法律保护等级</h3>
+                    <p>懒猴（特别是灰懒猴和伦氏懒猴）被列入《濒危野生动植物种国际贸易公约》（CITES）附录Ⅰ，在中国属于国家一级重点保护野生动物。这意味着<strong>严禁私人买卖</strong>。任何交易行为均属于刑事犯罪，价格再高也无法通过合法途径达成。</p>
+                </article>
+
+                <article class="factor-item">
+                    <h3>🏥 饲养成本高昂</h3>
+                    <p>即便在极少数具备资质的机构中，饲养一只懒猴的成本也极高。它们对温度、湿度、食物（特制昆虫、果汁）有严格要求，且由于夜行性和脆弱的体质，医疗护理需求特殊，这间接推高了其“价值”评估。</p>
+                </article>
+
+                <article class="factor-item">
+                    <h3>🔬 稀有度与科研价值</h3>
+                    <p>懒猴种群数量稀少，栖息地破坏严重。在合法的科研和保育领域，每一只个体都极其珍贵，属于不可再生的生物资源。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Legal Warning -->
+        <section id="legal" class="section">
+            <div class="legal-warning">
+                <h3>🚫 严禁非法交易</h3>
+                <p>根据《中华人民共和国刑法》第三百四十一条，非法猎捕、杀害国家重点保护的珍贵、濒危野生动物的，或者非法收购、运输、出售国家重点保护的珍贵、濒危野生动物及其制品的，处五年以下有期徒刑或者拘役，并处罚金；情节严重的，处五年以上十年以下有期徒刑，并处罚金；情节特别严重的，处十年以上有期徒刑或者无期徒刑，并处罚金或者没收财产。</p>
+                <p style="margin-top:10px;">切勿轻信网络上所谓的“私下交易”或“宠物懒猴”，这不仅是违法行为，更可能导致野生动物因不适应环境而死亡。</p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section">
+            <div class="section-header">
+                <h2>常见问题解答</h2>
+            </div>
+
+            <div class="faq-item">
+                <h4>1. 网上卖的“懒猴宠物”是真的吗？</h4>
+                <p>绝大多数网上的“懒猴宠物”是假货，或者是其他小型灵长类动物伪装的。即使是真的，也必须是合法的人工繁育个体，且主人必须持有《野生动物驯养繁殖许可证》和《野生动物经营利用许可证》。普通人无法合法持有。</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>2. 懒猴价格为什么比猴子贵？</h4>
+                <p>主要原因是其受保护级别极高，且饲养难度大、稀有。此外，由于严禁交易，市场上几乎没有公开的合法流通价格，导致价格信息混乱且往往被炒作。</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>3. 如果发现有人贩卖懒猴应该怎么办？</h4>
+                <p>请立即向当地公安机关或林业主管部门举报。保护野生动物人人有责。</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 懒猴价格科普网. 本站内容仅供科普与法律知识普及，不提供任何交易服务。</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
+                数据来源：CITES公约、中国国家林业和草原局、相关法律法规。
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
